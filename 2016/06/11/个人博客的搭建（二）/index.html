@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="hexo github 博客," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="将本地博客内容上传到远程仓库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="个人博客的搭建（二）">
+<meta property="og:url" content="2016/06/11/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%90%AD%E5%BB%BA%EF%BC%88%E4%BA%8C%EF%BC%89/index.html">
+<meta property="og:site_name" content="bofans&#39;blog">
+<meta property="og:description" content="将本地博客内容上传到远程仓库">
+<meta property="og:image" content="http://7xv8k7.com1.z0.glb.clouddn.com/Screen%20Shot%202016-06-10%20at%2011.06.47%20PM.png">
+<meta property="og:image" content="http://7xv8k7.com1.z0.glb.clouddn.com/Screen%20Shot%202016-06-11%20at%203.52.53%20AM.png">
+<meta property="og:image" content="http://7xv8k7.com1.z0.glb.clouddn.com/Screen%20Shot%202016-06-11%20at%204.06.49%20AM.png">
+<meta property="article:published_time" content="2016-06-10T19:43:54.000Z">
+<meta property="article:modified_time" content="2020-04-22T01:30:10.391Z">
+<meta property="article:author" content="bofan">
+<meta property="article:tag" content="hexo github 博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://7xv8k7.com1.z0.glb.clouddn.com/Screen%20Shot%202016-06-10%20at%2011.06.47%20PM.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="localhost:4000/2016/06/11/个人博客的搭建（二）/"/>
+
+
+
+
+
+  <title>个人博客的搭建（二） | bofans'blog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">bofans'blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不积跬步，不止千里</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="localhost:40002016/06/11/个人博客的搭建（二）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bofan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="bofans'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">个人博客的搭建（二）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-11T03:43:54+08:00">
+                2016-06-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="categories/基础/" itemprop="url" rel="index">
+                    <span itemprop="name">基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  将本地博客内容上传到远程仓库
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>上一节我讲述了如何在本地搭建一个个人博客，这一节讲述如何将本地的博客内容上传到github，利用github的二级域名进行访问。</p>
+<h2 id="1-开通github账号"><a href="#1-开通github账号" class="headerlink" title="1. 开通github账号"></a>1. 开通<code>github</code>账号</h2><h3 id="1-1-对github开通存在疑问的可以参考其官网-github"><a href="#1-1-对github开通存在疑问的可以参考其官网-github" class="headerlink" title="1.1 对github开通存在疑问的可以参考其官网[github]"></a>1.1 对github开通存在疑问的可以参考其官网[github]</h3><h3 id="1-2-新建repository"><a href="#1-2-新建repository" class="headerlink" title="1.2 新建repository"></a>1.2 新建repository</h3><p> <img src="http://7xv8k7.com1.z0.glb.clouddn.com/Screen%20Shot%202016-06-10%20at%2011.06.47%20PM.png" alt="testing"><br> 注意 <strong>repository</strong> 的名字一定是<code>github的账户名称</code> + <code>github.io</code></p>
+<p>记录下该库的全路径为：<code>https://github.com/bodhifan/bodhifan.github.io</code></p>
+<h2 id="2-连接git与github"><a href="#2-连接git与github" class="headerlink" title="2. 连接git与github"></a>2. 连接git与github</h2><h3 id="2-1-安装git"><a href="#2-1-安装git" class="headerlink" title="2.1 安装git"></a>2.1 安装git</h3><p>可以参看git的官方文档进行安装。输入下列命令检查是否安装成功</p>
+<blockquote>
+<p>git –version</p>
+</blockquote>
+<p><img src="http://7xv8k7.com1.z0.glb.clouddn.com/Screen%20Shot%202016-06-11%20at%203.52.53%20AM.png" alt="git console"></p>
+<h3 id="2-2-生成rsa-key-文件"><a href="#2-2-生成rsa-key-文件" class="headerlink" title="2.2 生成rsa key 文件"></a>2.2 生成rsa key 文件</h3><ol>
+<li><p>配置git 全局信息</p>
+<blockquote>
+<p> git config –global user.name “your name”<br>git config –global user.email “your email”</p>
+</blockquote>
+</li>
+<li><p>生成rsa key</p>
+<blockquote>
+<p>ssh-keygen -t rsa -C “your <a href="mailto:email@gmail.com">email@gmail.com</a>”</p>
+</blockquote>
+<p>得到id_rsa.pub 文件，拷贝这个文件的内容。</p>
+</li>
+<li><p>在github上配置ssh key</p>
+<p>通过网页打开github -&gt; settings -&gt; SSH and GPG keys，新增一个ssh key</p>
+<p><img src="http://7xv8k7.com1.z0.glb.clouddn.com/Screen%20Shot%202016-06-11%20at%204.06.49%20AM.png" alt="ssh key"></p>
+</li>
+<li><p>测试是否连接成功</p>
+<blockquote>
+<p>ssh -T <a href="mailto:git@github.com">git@github.com</a></p>
+</blockquote>
+<p>出现 successfully authenticated 则表示连接成功！</p>
+</li>
+</ol>
+<h2 id="3-PUSH本地博客文件到github"><a href="#3-PUSH本地博客文件到github" class="headerlink" title="3. PUSH本地博客文件到github"></a>3. PUSH本地博客文件到github</h2><h3 id="1-修改配置文件"><a href="#1-修改配置文件" class="headerlink" title="1. 修改配置文件"></a>1. 修改配置文件</h3><p>修改站点配置文件 _config.yml</p>
+<blockquote>
+<p>deploy:<br>  type: git<br>  repository: <a href="https://github.com/bodhifan/bodhifan.github.io.git" target="_blank" rel="noopener">https://github.com/bodhifan/bodhifan.github.io.git</a><br>  branch: master</p>
+</blockquote>
+<h3 id="2-运行下列命令"><a href="#2-运行下列命令" class="headerlink" title="2. 运行下列命令"></a>2. 运行下列命令</h3><blockquote>
+<p>npm install hexo-deployer-git –save<br>hexo clean<br>hexo generate<br>hexo deploy</p>
+</blockquote>
+<p>最后命令提示 <code>Deploy done</code> 则表示上传成功。</p>
+<h2 id="4-使用二级域名访问博客"><a href="#4-使用二级域名访问博客" class="headerlink" title="4. 使用二级域名访问博客"></a>4. 使用二级域名访问博客</h2><p>在浏览器中输入[github]username.github.io 就可以正常访问自己的博客了。</p>
+<p>下一节，我将讲述如何创建博客和页面，如何定制页面。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="tags/hexo-github-博客/" rel="tag"># hexo github 博客</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="2016/06/10/个人博客的搭建（一）/" rel="next" title="个人博客的搭建（一）">
+                <i class="fa fa-chevron-left"></i> 个人博客的搭建（一）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="2020/04/22/阿里云部署非80端口/" rel="prev" title="阿里云部署非80端口">
+                阿里云部署非80端口 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">bofan</p>
+              <p class="site-description motion-element" itemprop="description">不积跬步，不止千里</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-开通github账号"><span class="nav-number">1.</span> <span class="nav-text">1. 开通github账号</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-对github开通存在疑问的可以参考其官网-github"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 对github开通存在疑问的可以参考其官网[github]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-新建repository"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 新建repository</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-连接git与github"><span class="nav-number">2.</span> <span class="nav-text">2. 连接git与github</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-安装git"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 安装git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-生成rsa-key-文件"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 生成rsa key 文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-PUSH本地博客文件到github"><span class="nav-number">3.</span> <span class="nav-text">3. PUSH本地博客文件到github</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-修改配置文件"><span class="nav-number">3.1.</span> <span class="nav-text">1. 修改配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-运行下列命令"><span class="nav-number">3.2.</span> <span class="nav-text">2. 运行下列命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-使用二级域名访问博客"><span class="nav-number">4.</span> <span class="nav-text">4. 使用二级域名访问博客</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">bofan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
